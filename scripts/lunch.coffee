@@ -8,12 +8,12 @@ client = yelp.createClient
   token_secret: 'kCgbJQBYqwzawTeFnEw-VYZdD6M'
 
 module.exports = (robot) ->
-  robot.respond /(.*)/i, (msg) ->
+  robot.respond /lunch (.*)/i, (msg) ->
     client.search
       term: msg.match[1].replace(' ', '+') + '+food'
-      ll: '-33.877408, 151.197792'
+      ll: '-33.8776, 151.2066'
       sort: 1
-      radius_filter: 1000
+      radius_filter: 1500
       limit: 20
     , (err, data) ->
       if err
